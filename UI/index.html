@@ -5,90 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EPICMail</title>
+    <title>Epic Mail</title>
+   
     <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
-    <nav>
-
-
-        <a class="new" href="#">New Message</a>
-        <ul class="menu">
-            <li class="nav-menu"><a class="nav-link" href="#">Inbox <span class="notification">245</span></a></li>
-            <li class="nav-menu"><a class="nav-link" href="#">Sent</a></li>
-            <li class="nav-menu"><a class="nav-link" href="#">Draft</a></li>
-            <li class="nav-menu"><a class="nav-link" href="#">Important</a></li>
-            <li class="nav-menu"><a class="nav-link" href="#">Group</a></li>
-        </ul>
-
-    </nav>
-    <section class="list-view" id="listview">
-        <header class="list-header">
-            <input class="search-input" type="text" placeholder="Search">
-            <button class="btn-search"><i class="fa fa-search"></i></button>
-        </header>
-        <div class="content">
-            <div class="mails">
-                <span><input type="checkbox" name="checkedmail" id="checkedmail"></span>
-                <span class="time">6:00 PM</span>
-
-                <div class="maildescription ">
-                    <h2 class="mail-sender">Okuns Patrick</h2>
-                    <h5 class="mail-title">Project Epic Mail Feedback</h5>
-                    <p class="mail-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nihil dolorum a
-                        quasi ipsa
-                        blanditiis quibusdam sequi asperiores, officiis perspiciatis.</p>
+    <main class="d-flex flex-column justify-content-between">
+        <nav class="">
+            <header>
+                <div class="container w-90 d-flex justify-content-between">
+                    <div class="epic-mail">
+                        <h1 title="EpicMail"> <a href="/index.html" class="header-title">EpicMail</a></h1>
+                    </div>
+                    <div class="epic-mail">
+                        <h4> <a href="register.html">Register Now!</a></h4>
+                    </div>
                 </div>
-
+            </header>
+        </nav>
+        <section class="container w-90 d-flex justify-content-between">
+            <div class="text">
+                Experience Our awesome mail services
             </div>
-            <div class="mails">
-                <span><input type="checkbox" name="checkedmail" id="checkedmail"></span>
-                <span class="time">12:00 AM</span>
-
-                <div class="maildescription">
-                    <h2 class="mail-sender">Okuns Patrick</h2>
-                    <h5 class="mail-title">Project Epic Mail Feedback</h5>
-                    <p class="mail-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nihil dolorum a
-                        quasi ipsa
-                        blanditiis quibusdam sequi asperiores, officiis perspiciatis.</p>
+            <div class="card bg-lightest-brown px-5 py-5">
+                <div class=" form-group">
+                    <label for="email">Email <i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                    <input type="text" name="email" id="email" class="form-control">
                 </div>
-
-            </div>
-            <div class="mails">
-                <span><input type="checkbox" name="checkedmail" id="checkedmail"></span>
-                <span class="time">7:45 PM</span>
-
-                <div class="maildescription">
-                    <h2 class="mail-sender">Okuns Patrick</h2>
-                    <h5 class="mail-title">Project Epic Mail Feedback</h5>
-                    <p class="mail-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nihil dolorum a
-                        quasi ipsa
-                        blanditiis quibusdam sequi asperiores, officiis perspiciatis.</p>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" id="password">
                 </div>
+                <button class="btn bg-blue mb-4">
+                    Login <i class="fa fa-key fa-lg fa-fw"></i>
+                </button>
 
+                <small class="">Dont have an acount? <span class="text-blue"><a href="register.html">Sign Up</a></span></small>
+                <small class="">Forgotten Password? <span class="text-blue"><a href="resetpassword.html">Reset it</a></span></small>
             </div>
-            <div class="mails">
-                <span><input type="checkbox" name="checkedmail" id="checkedmail"></span>
-                <span class="time">1:00 PM</span>
-
-                <div class="maildescription">
-                    <h2 class="mail-sender">Okuns Patrick</h2>
-                    <h5 class="mail-title">Project Epic Mail Feedback</h5>
-                    <p class="mail-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nihil dolorum a
-                        quasi ipsa
-                        blanditiis quibusdam sequi asperiores, officiis perspiciatis.</p>
-                </div>
-
+        </section>
+        <footer class="">
+            <div class="d-flex justify-content-center">
+                <p class="copyright">
+                    Patrick Okuns<i class="fa fa-copyright"></i> 2019
+                </p>
             </div>
+        </footer>
+    </main>
 
-
-        </div>
-    </section>
-    <section id="veiw-mail">
-        <header class="view-mail-header"></header>
-    </section>
+    <script src="app.js"></script>
 </body>
 
 </html>
