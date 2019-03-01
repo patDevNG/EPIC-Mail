@@ -27,7 +27,7 @@ DAEK GREUBLUE #002F2F*/
     background-color: #EFECCA;
 }
 .bg-light{
-    background-color: #fafafa;
+    background-color: #faf7fa;
 }
 
 .text-lightest-brown {
@@ -53,6 +53,9 @@ DAEK GREUBLUE #002F2F*/
 .trasparent {
     background-color: transparent;
 }
+.opacity-9{
+    opacity: 0.9;
+}
 
 /* remove all paddding and margins */
 * {
@@ -72,6 +75,12 @@ body {
 
 section {
     width: 100vw;
+}
+.border-green{
+border: 1px solid green !important;
+}
+.border-red{
+    border: 1px solid red !important;
 }
 
 /* buttons */
@@ -139,20 +148,20 @@ section {
 
 /* hoverable class */
 .hoverable:hover {
-    background-color: #f7f7f7;
+    background-color: #f0ebeb;
     /* background-color: #fafafa; */
     transition: 0 2px 2px 0 rgba(0, 0, 0, 0.14) .5s;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.shadow{
+    box-shadow: 1px 2px 3px grey;
 }
 
 /* responsive image */
 .responsive-image {
     vertical-align: middle;
     border-style: none;
-}
-.nav-image{
-    border-radius: 50%;
 }
 
 /* float classes */
@@ -169,11 +178,12 @@ section {
 }
 
 /* align classes */
+
 .text-center {
     text-align: center;
 }
 
-/* checkbox  */
+/* checkbox 
 input[type=checkbox]+label {
     display: block;
     margin: 0.2em;
@@ -190,8 +200,8 @@ input[type=checkbox]+label:before {
     border: 0.1em solid #002F2F;
     border-radius: 0.2em;
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 1rem;
+    height: 1rem;
     padding-left: 0.2em;
     padding-bottom: 0.3em;
     margin-right: 0.2em;
@@ -219,7 +229,7 @@ input[type=checkbox]:checked:disabled+label:before {
     transform: scale(1);
     background-color: #bfb;
     border-color: #bfb;
-}
+} */
 
 /* container class */
 @media (min-width: 768px) {
@@ -250,7 +260,15 @@ input[type=checkbox]:checked:disabled+label:before {
 .d-inline {
     display: inline !important;
 }
-
+.d-none{
+    display: none;
+}
+.center-allign{
+    align-content: center;
+}
+.w-100{
+    width: 100%;
+}
 .w-90 {
     max-width: 90%;
     margin-right: auto;
@@ -281,7 +299,7 @@ input[type=checkbox]:checked:disabled+label:before {
     margin-left: auto;
 }
 .w-20 {
-    max-width: 20%;
+    max-width: 0%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -329,7 +347,9 @@ label {
     border-radius: .5rem;
     box-shadow: 1px 2px 3px grey;
 }
-
+.card-body{
+    padding: 1px;
+}
 /* flexbox styles */
 .row {
     display: flex;

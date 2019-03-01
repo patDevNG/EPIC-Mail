@@ -1,24 +1,48 @@
+@import url("style.css");
+@import url("modal.css");
 /* colour scheme */
 /* lightbrown #E6E2AF
 DARKLIGHTBROWN #A7A37E
 LIGHTESTBROWN #EFECCA
 BLUE #046380
 DAEK GREUBLUE #002F2F*/
+
+#resetpassword {
+    background: url(../images/auntyemail.jpg);
+    background-size: cover;
+    background-position: center;
+    /* color: whitesmoke; */
+    /* min-height: 82vh; */
+    position: relative;
+}
+
+#indexpage {
+    background: url(../images/envelopes.jpg);
+    background-size: cover;
+    background-position: center;
+    /* box-shadow:inset 0 0 0 2000px rgb(250,244,244); */
+    /* color: whitesmoke; */
+    /* min-height: 82vh; */
+    position: relative;
+}
+
 main {
     min-height: 100vh;
     width: 100vw;
 }
-#content{
+
+#content {
     width: 80%;
 }
-header {
-    max-height: 15vh;
-    background-color: #E6E2AF;
-    color: #002F2F;
-    background: rgb(167, 163, 126);
-    background: linear-gradient(90deg, rgba(167, 163, 126, 1) 33%, rgba(230, 226, 175, 1) 79%, rgba(239, 236, 202, 1) 100%);
-    background-image: linear-gradient(#EFECCA, #E6E2AF, rgb(241, 237, 171) 50%);
-    border: 1px solid rgb(247, 243, 187);
+
+nav header {
+    max-height: 20vh;
+    /* background-color: #E6E2AF; */
+    color: #ffffff;
+    background: rgb(4, 99, 128);
+    background: linear-gradient(259deg, rgba(4, 99, 128, 1) 0%, rgba(0, 47, 47, 1) 33%, rgba(4, 99, 128, 1) 63%, rgba(0, 47, 47, 1) 100%);
+    /* background-image: linear-gradient(#EFECCA, #E6E2AF, rgb(241, 237, 171) 50%); */
+    border: 1px solid rgb(4, 99, 128);
     /* border-right: 1px solid rgb(247, 243, 187); */
     box-shadow: 1px 2px 2px grey;
 }
@@ -30,15 +54,14 @@ header {
 }
 
 .epic-mail {
-    padding: 15px 0px;
-}
-.main-content{
-    height: 40vh;
+    padding: 5px 0px;
 }
 
 .epic-mail h4 a {
     text-decoration: none;
-    color: #002F2F;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #ffffff !important;
 }
 
 .text-blue a {
@@ -47,7 +70,7 @@ header {
 }
 
 .header-title {
-    color: #002F2F;
+    color: #ffffff !important;
     /* color: white; */
     font-size: 1.6rem;
     font-weight: 500;
@@ -55,9 +78,9 @@ header {
 }
 
 /* section css */
-.text {
+#test {
     font-size: 2rem;
-    max-width: 30%;
+    max-width: 50%;
 }
 
 .card-title {
@@ -65,14 +88,27 @@ header {
     font-style: oblique;
     font-weight: 400;
 }
-.red-badge{
-    background-color: tomato;
+
+.red-badge {
+    background-color: rgb(207, 3, 13);
     color: white;
     padding: 0.2rem;
     text-align: center;
-    border: 1px solid rgba(255, 99, 71, 0.836);
+    border: 1px solid  rgb(207, 3, 13);
     border-radius: 0.25rem;
     box-shadow: 1px 2px 3px grey;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.green-badge {
+    background-color: #0ba369e7;
+    ;
+    color: white;
+    padding: 0.2rem;
+    text-align: center;
+    border: 1px solid  #0ba369e7;
+    border-radius: 0.25rem;
+    box-shadow: 1px 2px 3px black;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
@@ -87,21 +123,28 @@ select {
 /* admidashboard css */
 .width-30 {
     max-width: 30%;
-    border: 2px solid red
 }
 
 .width-70 {
     max-width: 70%;
-    border: 2px solid purple;
+
+}
+
+/* nav part */
+nav {
+    max-height: 10vh;
 }
 
 /* footer part*/
 footer {
     max-height: 10vh;
     background-color: #E6E2AF;
-    color: #002F2F;
-    background-image: linear-gradient(#EFECCA, #E6E2AF, rgb(241, 237, 171) 50%);
-    border: 1px solid rgb(247, 243, 187);
+    color: #ffffff;
+    text-align: center;
+    background: rgb(4, 99, 128);
+    background: linear-gradient(259deg, rgba(4, 99, 128, 1) 0%, rgba(0, 47, 47, 1) 33%, rgba(4, 99, 128, 1) 63%, rgba(0, 47, 47, 1) 100%);
+    /* background-image: linear-gradient(#EFECCA, #E6E2AF, rgb(241, 237, 171) 50%); */
+    border: 1px solid rgb(0, 47, 47);
     /* border-right: 1px solid rgb(247, 243, 187); */
     box-shadow: 1px 2px 2px grey;
 }
@@ -115,50 +158,23 @@ footer {
 .input-container {
     display: flex;
     width: 100%;
-  }
-  
-  .search-icon {
+}
+
+.search-icon {
     text-align: center;
     background: #7cb4ca;
- }
-  
-  .input-field {
+}
+
+.input-field {
     width: 100%;
     padding: 8px;
     outline: none;
-  }
-  
-  .input-field:focus {
+}
+
+.input-field:focus {
     border: 1px solid #7cb4ca;
-  }
-  
-  /* Set a style for the submit button */
-  .btn-search {
-    background-color:#7cb4ca;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.9;
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-    letter-spacing: .5px;
-    -webkit-transition: .2s ease-out;
-    transition: .2s ease-out;
-    cursor: pointer;
-    border: none;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    text-transform: capitalize;
-    vertical-align: middle;
-  }
-  
-  .btn-search:hover {
-    opacity: 1;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  }
-  
+}
+
 /* fixed button */
 .fixed-menu {
     position: absolute;
@@ -171,6 +187,7 @@ footer {
 .dropdown {
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 
 .dropdown-content {
@@ -202,29 +219,32 @@ footer {
 .wrapper {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     flex-wrap: nowrap;
-    /* align-items: stretch; */
 }
-.sidebar{
-    width: 20%;
+
+.width-150 {
+    width: 150px;
 }
-.content{
+
+.content {
     width: 80%;
 }
+
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
-    background: #fafafa;
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 80vh;
+    background: #f1f0f0;
     color: #046380;
-    transition: all 0.3s;
+    transition: all 1s;
     position: relative;
 }
 
 /* Shrinking the sidebar from 250px to 80px and center aligining its content*/
 #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 6.4%;
+    max-width: 6.4%;
     text-align: center;
 }
 
@@ -270,7 +290,7 @@ a:focus {
     padding: 20px;
     text-align: center;
     align-content: center;
-    background: #fafafa;
+    background: #f1f0f0;
 }
 
 /* #sidebar ul.components {

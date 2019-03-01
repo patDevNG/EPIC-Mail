@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Epic Mail</title>
-   
-    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="./assets/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/alert.css"> -->
+    <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
-<body>
+<body id="indexpage">
     <main class="d-flex flex-column justify-content-between">
         <nav class="">
             <header>
@@ -21,41 +23,53 @@
                         <h1 title="EpicMail"> <a href="/index.html" class="header-title">EpicMail</a></h1>
                     </div>
                     <div class="epic-mail">
-                        <h4> <a href="register.html">Register Now!</a></h4>
+                        <h4> <a href="register.html" class="">Register Now!</a></h4>
                     </div>
                 </div>
             </header>
         </nav>
-        <section class="container w-90 d-flex justify-content-between">
-            <div class="text">
-                Experience Our awesome mail services
+        <section>
+            <div class="container w-90 d-flex justify-content-between opacity-9">
+                    <div id="test">
+                           <p>Experience Our awesome mail services</p>
+                        </div>
+                        <div class="card bg-lightest-brown p-4">
+                            <div class="card-body"></div>
+                            <form id="loginForm">
+                                <div class=" form-group">
+                                    <label for="email"> <b>Email:</b> <i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                                    <input type="text" name="email" id="loginEmail" class="form-control" placeholder="Your Epic Mail here">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password"> <b>Password:</b></label>
+                                    <input type="password" class="form-control" name="password" id="loginPassword" placeholder="Epic password">
+            
+                                </div>
+                                <input type="submit" onclick="login()" value="Login" class="btn bg-blue mb-4" id="loginSubmit">
+                            </form>
+            
+            
+                            <small class="">Dont have an acount? <span class="text-blue"><a href="register.html">Sign Up</a></span></small>
+                            <small class="">Forgotten Password? <span class="text-blue"><a href="resetpassword.html">Reset it</a></span></small>
+                        </div>
             </div>
-            <div class="card bg-lightest-brown px-5 py-5">
-                <div class=" form-group">
-                    <label for="email">Email <i class="fa fa-address-card-o" aria-hidden="true"></i></label>
-                    <input type="text" name="email" id="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" name="password" id="password">
-                </div>
-                <button class="btn bg-blue mb-4">
-                    Login <i class="fa fa-key fa-lg fa-fw"></i>
-                </button>
+            
 
-                <small class="">Dont have an acount? <span class="text-blue"><a href="register.html">Sign Up</a></span></small>
-                <small class="">Forgotten Password? <span class="text-blue"><a href="resetpassword.html">Reset it</a></span></small>
-            </div>
+
         </section>
         <footer class="">
             <div class="d-flex justify-content-center">
                 <p class="copyright">
-                    Patrick Okuns<i class="fa fa-copyright"></i> 2019
+                    Patrick Okuns<i class="fas fa-copyright"></i> 2019
                 </p>
             </div>
         </footer>
     </main>
-
+    <!-- <script src="./ckeditor.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script> -->
+    <script src="./assets/jquery.js"></script>
+    <script src="ui.js"></script>
+    <script src="classes.js"></script>
     <script src="app.js"></script>
 </body>
 
