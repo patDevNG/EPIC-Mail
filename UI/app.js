@@ -1,69 +1,93 @@
-$(document).ready(function () {
+// instantiate Epichttp library
+const http = new EpicHTTP;
 
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $('.mssgicon').toggleClass('fn');
-    });
-
-});
-CKEDITOR.replace('editor1', {
-    height: '80px'	
-    });
-    // modal js
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+const baseUrl = 'https://jsonplaceholder.typicode.com/';
 
 // instantiate UI
 const ui = new UI();
+
+// variables
+// login variables
+const loginEmail = document.getElementById('loginEmail');
+const loginPassword = document.getElementById('loginPassword');
+
+// register variables
+const regfirstName = document.getElementById('firstName');
+const reglastName = document.getElementById('lastName');
+const regphone = document.getElementById('phone');
+const regEmail = document.getElementById('email');
+const regcountry = document.getElementById('country');
+const reggender = document.getElementById('gender');
+const regpassword = document.getElementById('password');
+const regcnfpassword = document.getElementById('cnfpassword');
+
+window.onload = () => {
+    // validate login process
+    loginEmail.addEventListener('blur', validateloginEmail);
+    loginPassword.addEventListener('blur', validateloginPassword);
+}
+window.onload = () => {
+    // validate reg process
+    regEmail.addEventListener('blur', validateregEmail);
+    regfirstName.addEventListener('blur', validatefirstName);
+    reglastName.addEventListener('blur', validatelastName);
+    regphone.addEventListener('blur', validatePhone);
+    regpassword.addEventListener('blur', validateregPassword);
+    regcnfpassword.addEventListener('blur', validatecnfPassword);
+}
+
+const regUser = {
+    name: 'John Doe',
+    email: 'johndoe@gmail.com',
+    address: 'plot 436 arab road kubwa'
+}
+// get all users
+http.get(`${baseUrl}users`)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+
+// get all todods
+http.get(`${baseUrl}todos/5`)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+
+//  post user
+http.post(`${baseUrl}users`, regUser)
+    .then(user => console.log(user))
+    .catch(err => console.log(err));
+
+//  update user
+http.put(`${baseUrl}users/5`, regUser)
+    .then(user => console.log(user))
+    .catch(err => console.log(err));
+
+
 //  cancel function
-cancelMessage=()=>{
-    console.log('it haf run');
+cancelMessage = () => {
+    console.log('it haf run cancel');
 }
 // add event listener for submit button on login
 login = () => {
     document.getElementById('loginForm').addEventListener('submit', submitForm = (e) => {
+
         // get form values
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-
-        // instantiate a book
+        const email = loginEmail.value;
+        const password = loginPassword.value;
+        // instantiate a new login
         const login = new Login(email, password);
-
-        // instantiate UI
-        const ui = new UI();
 
         // validate the fields
         if (email === "" || password === "") {
-            // alert('Please fill in some details');
             // error alert
             ui.showAlert('Please fill in all fields', 'alert danger')
         } else {
             ui.showAlert('Login Succesfully', 'alert success')
             //do something here
-            console.log('its working', login);
+            //  post user
+            http.post(`${baseUrl}users`, login)
+                .then(user => console.log(user))
+                .catch(err => console.log(err));
+            // console.log('its working', user);
         }
         e.preventDefault();
     })
@@ -72,90 +96,127 @@ register = () => {
     //  add event listener for submit button on register
     document.getElementById('registerForm').addEventListener('submit', registerSubmit = (e) => {
         // get form values
-        const email = document.getElementById('email').value;
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const phone = document.getElementById('phone').value;
-        const country = document.getElementById('country').value;
-        const gender = document.getElementById('gender').value;
-        const password = document.getElementById('password').value;
-        const cnfpassword = document.getElementById('cnfpassword').value;
+        const email = regEmail.value;
+        const firstName = regfirstName.value;
+        const lastName = reglastName.value;
+        const phone = regphone.value;
+        const country = regcountry.value;
+        const gender = reggender.value;
+        const password = regpassword.value;
+        const cnfpassword = regcnfpassword.value;
 
-        // instantiate a book
+        // instantiate a new user
         const register = new Register(email, firstName, lastName, phone, country, gender, password, cnfpassword);
+
         // validate the fields
         if (email === " " || firstName === " " || lastName === "" || phone === "" || country === "" || gender === "" || cnfpassword === "") {
             // error alert
             ui.showAlert('Please fill in all fields', 'alert danger')
         } else {
-            if (password != cnfpassword) {
-                // showAlert error
-                ui.showAlert('Password do not match', 'alert danger');
-            } else {
-                //do something here
-                ui.showAlert('Registered Sucesfully', 'alert success');
-                console.log('its working', register);
-            }
-
+            //do something here
+            ui.showAlert('Registered Sucesfully', 'alert success');
+            console.log('its working', register);
         }
         e.preventDefault();
     })
 }
-document.getElementById('loginEmail').addEventListener('blur', validateloginEmail);
-document.getElementById('email').addEventListener('blur', validateEmail);
-document.getElementById('firstName').addEventListener('blur', validatefirstName);
-document.getElementById('lastName').addEventListener('blur', validatelastName);
-document.getElementById('phone').addEventListener('blur', validatePhone);
 
-function validatefirstName() {
-    const firstName = document.getElementById('firstName');
-    const re = /^[a-zA-Z]{2,15}$/
-    if (!re.test(firstName.value)) {
-        ui.showAlert('First Name must be between 2 - 15 letters', 'alert danger');
-        firstName.classList.add('border-red');
+// function to validate the email
+validateloginEmail = () => {
+    const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)([a-zA-Z]{2,5})$/
+    if (!re.test(loginEmail.value)) {
+        ui.showAlert('Use a valid email', 'alert danger');
+        loginEmail.classList.add('border-red');
+    }
+    if (loginEmail.value == '') {
+        ui.showAlert('This field is required', 'alert danger');
+        loginEmail.classList.add('border-red');
+
     } else {
-        firstName.classList.replace('border-red', 'border-green');
+        loginEmail.classList.replace('border-red', 'border-green');
     }
 }
-
-function validatelastName() {
-    const lastName = document.getElementById('lastName');
-    const re = /^[a-zA-Z]{2,15}$/
-    if (!re.test(lastName.value)) {
-        ui.showAlert('Last Name must be between 2 - 15 letters', 'alert danger');
-        lastName.classList.add('border-red');
+// function to validate password on login
+validateloginPassword = () => {
+    if (loginPassword.value === "") {
+        ui.showAlert('This field is required', 'alert danger')
+        loginPassword.classList.add('border-red');
     } else {
-        lastName.classList.replace('border-red', 'border-green');
+        loginPassword.classList.replace('border-red', 'border-green');
     }
 }
-
-function validatePhone() {
-    const phone = document.getElementById('phone');
+validatefirstName = () => {
+    const re = /^[a-zA-Z]{2,50}$/
+    if (!re.test(regfirstName.value)) {
+        ui.showAlert('First Name must be more than two letters', 'alert danger');
+        regfirstName.classList.add('border-red');
+    }
+    if (regfirstName.value == '') {
+        ui.showAlert('This field is required', 'alert danger');
+        regfirstName.classList.add('border-red');
+    } else {
+        regfirstName.classList.replace('border-red', 'border-green');
+    }
+}
+validatelastName = () => {
+    const re = /^[a-zA-Z]{2,50}$/
+    if (!re.test(reglastName.value)) {
+        ui.showAlert('Last Name must be more than two', 'alert danger');
+        reglastName.classList.add('border-red');
+    }
+    if (reglastName.value == '') {
+        ui.showAlert('This field is required', 'alert danger');
+        reglastName.classList.add('border-red');
+    } else {
+        reglastName.classList.replace('border-red', 'border-green');
+    }
+} // function to validate phone on register
+validatePhone = () => {
     const re = /^[0-9]{11}$/
-    if (!re.test(phone.value)) {
+    if (!re.test(regphone.value)) {
         ui.showAlert('Phone number must be between 11 numbers', 'alert danger');
-        phone.classList.add('border-red');
+        regphone.classList.add('border-red');
+    } else if (regphone.value == '') {
+        ui.showAlert('This field is required', 'alert danger');
+        regphone.classList.add('border-red');
     } else {
-        phone.classList.replace('border-red', 'border-green');
+        regphone.classList.replace('border-red', 'border-green');
     }
 }
-function validateEmail() {
-    const email = document.getElementById('email');
-    const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)([a-zA-Z]{2,5})$/
-    if (!re.test(email.value)) {
-        ui.showAlert('Use a valid email', 'alert danger');
-        email.classList.add('border-red');
+// function to validate password on register
+validateregPassword = () => {
+    if (regpassword.value === "") {
+        ui.showAlert('This field is required', 'alert danger')
+        regpassword.classList.add('border-red');
     } else {
-        email.classList.replace('border-red', 'border-green');
+        regpassword.classList.replace('border-red', 'border-green');
     }
 }
-function validateloginEmail() {
-    const email = document.getElementById('loginEmail');
-    const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)([a-zA-Z]{2,5})$/
-    if (!re.test(email.value)) {
-        ui.showAlert('Use a valid email', 'alert danger');
-        email.classList.add('border-red');
+// function to validate confirm password on register
+validatecnfPassword = () => {
+    if (regcnfpassword.value === "") {
+        ui.showAlert('This field is required', 'alert danger')
+        regcnfpassword.classList.add('border-red');
+    }
+    if (regcnfpassword.value !== password.value) {
+        ui.showAlert('Password does not match', 'alert danger');
+        regcnfpassword.classList.add('border-red');
     } else {
-        email.classList.replace('border-red', 'border-green');
+        regcnfpassword.classList.replace('border-red', 'border-green');
+    }
+}
+// function to validate email on register
+validateregEmail = () => {
+    const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)([a-zA-Z]{2,5})$/
+    if (!re.test(regEmail.value)) {
+        ui.showAlert('Use a valid email', 'alert danger');
+        regEmail.classList.add('border-red');
+    }
+    if (regEmail.value == '') {
+        ui.showAlert('This field is required', 'alert danger');
+        regEmail.classList.add('border-red');
+
+    } else {
+        regEmail.classList.replace('border-red', 'border-green');
     }
 }
