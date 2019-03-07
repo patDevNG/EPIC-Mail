@@ -1,8 +1,5 @@
 class UI {
     constructor() {
-        // this.loginEmail = document.getElementById('loginEmail');
-        // this.loginPassword = document.getElementById('loginPassword');
-        // this.loginSubmit = document.getElementById('loginSubmit');
 
     }
     // show alert message

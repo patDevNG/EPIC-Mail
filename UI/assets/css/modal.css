@@ -4,7 +4,6 @@
     box-sizing: border-box;
     outline: none;
 }
-
 /* The Modal (background) */
 .modal {
     display: none;
@@ -90,20 +89,21 @@
 }
 
 .blue-button:hover {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
+    background-color: #b8cbf5;
     color: #046380;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .red-button:hover {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     background-color: #f7bfc4;
     color: #da1d30;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .green-button:hover {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: rgb(4, 163, 4);
     background-color: rgb(197, 245, 211);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -128,7 +128,7 @@
     border-radius: 6px;
     padding: 5px 0;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     bottom: 125%;
     left: 50%;
     margin-left: -60px;
@@ -221,4 +221,126 @@
     to {
         opacity: 1;
     }
+}
+/* chips */
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f2f2f2;
+  }
+  
+  .chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+/* switch css */
+.onoffswitch {
+    position: relative; width: 40px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 11px; padding: 0; line-height: 11px;
+    border: 0px solid #999999; border-radius: 20px;
+    background-color: #EEEEEE;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 20px; margin: -4.5px;
+    background: #A1A1A1;
+    position: absolute; top: 0; bottom: 0;
+    right: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px 0px #757575;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #ACD9F7;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #ACD9F7;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; 
+    background-color: #27A1CA; 
+    box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+/* check box design */
+div.ks-cboxtags {
+    /* list-style: none; */
+    padding: 10px;
+}
+div.ks-cboxtags div{
+  display: inline;
+}
+div.ks-cboxtags div label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 20%;
+    white-space: nowrap;
+    /* margin: 3px 0px; */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+div.ks-cboxtags div label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+div.ks-cboxtags div label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+div.ks-cboxtags div input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+div.ks-cboxtags div input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+div.ks-cboxtags div input[type="checkbox"] {
+  display: absolute;
+}
+div.ks-cboxtags div input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+div.ks-cboxtags div input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
 }
