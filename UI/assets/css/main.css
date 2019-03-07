@@ -1,4 +1,5 @@
 @import url("style.css");
+
 @import url("modal.css");
 /* colour scheme */
 /* lightbrown #E6E2AF
@@ -7,23 +8,85 @@ LIGHTESTBROWN #EFECCA
 BLUE #046380
 DAEK GREUBLUE #002F2F*/
 
-#resetpassword {
+/* #resetpassword {
     background: url(../images/auntyemail.jpg);
     background-size: cover;
     background-position: center;
+    color: whitesmoke;
+    min-height: 82vh;
+    position: relative;
+} */
+/* star check */
+.star {
+    visibility : hidden;
+    font-size : 20px;
+    cursor : pointer;
+    color : orange;
+}
+.star:before {
+   content: "\2605";
+   position: absolute;
+   visibility:visible;
+   color: orange;
+  
+}
+.star:checked:before {
+   content: "\2606";
+   position: absolute;
+   
+}
+
+#content-1 {
+    border-right: 1px solid #E6E2AF;
+}
+
+#indexpage {
+    background: url(../images/envelopesnew.jpg);
+    background-size: cover;
+    background-position: center;
+    /* box-shadow:inset 0 0 0 2000px rgb(252, 254, 255); */
     /* color: whitesmoke; */
     /* min-height: 82vh; */
     position: relative;
 }
 
-#indexpage {
-    background: url(../images/envelopes.jpg);
-    background-size: cover;
-    background-position: center;
-    /* box-shadow:inset 0 0 0 2000px rgb(250,244,244); */
-    /* color: whitesmoke; */
-    /* min-height: 82vh; */
-    position: relative;
+.overflow-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.blue-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+
+.blue-scrollbar::-webkit-scrollbar-track {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.blue-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #046380;
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.message {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.message-body {
+    white-space: nowrap;
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.sender-name {
+    font-family: 'Courgette', cursive;
+    font-size: 0.75rem;
 }
 
 main {
@@ -32,7 +95,7 @@ main {
 }
 
 #content {
-    width: 80%;
+    width: 93%;
 }
 
 nav header {
@@ -62,6 +125,20 @@ nav header {
     font-size: 1.3rem;
     font-weight: 400;
     color: #ffffff !important;
+}
+
+.logincard {
+    width: 30% !important;
+    height: auto !important;
+}
+
+.resetForm {
+    width: 30% !important;
+    height: auto !important;
+}
+
+.logout:hover {
+    color: #ee949c;
 }
 
 .text-blue a {
@@ -94,7 +171,7 @@ nav header {
     color: white;
     padding: 0.2rem;
     text-align: center;
-    border: 1px solid  rgb(207, 3, 13);
+    border: 1px solid rgb(207, 3, 13);
     border-radius: 0.25rem;
     box-shadow: 1px 2px 3px grey;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -106,7 +183,7 @@ nav header {
     color: white;
     padding: 0.2rem;
     text-align: center;
-    border: 1px solid  #0ba369e7;
+    border: 1px solid #0ba369e7;
     border-radius: 0.25rem;
     box-shadow: 1px 2px 3px black;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -138,7 +215,6 @@ nav {
 /* footer part*/
 footer {
     max-height: 10vh;
-    background-color: #E6E2AF;
     color: #ffffff;
     text-align: center;
     background: rgb(4, 99, 128);
@@ -194,14 +270,14 @@ footer {
     display: none;
     position: absolute;
     background: #fafafa;
-    min-width: 160px;
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     color: #046380;
-    padding: 12px 16px;
+    padding: 10px 14px;
     text-decoration: none;
     display: block;
 }
@@ -227,26 +303,18 @@ footer {
     width: 150px;
 }
 
-.content {
-    width: 80%;
-}
 
 #sidebar {
-    min-width: 20%;
-    max-width: 20%;
     min-height: 80vh;
     background: #f1f0f0;
     color: #046380;
+    min-width: 7vw;
+    max-width: 7vw;
+    text-align: center;
     transition: all 1s;
     position: relative;
 }
 
-/* Shrinking the sidebar from 250px to 80px and center aligining its content*/
-#sidebar.active {
-    min-width: 6.4%;
-    max-width: 6.4%;
-    text-align: center;
-}
 
 /* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
 #sidebar .sidebar-header strong {
@@ -262,11 +330,11 @@ footer {
 }
 
 #sidebar ul li a {
-    text-align: left;
+    text-align: center;
 }
 
 #sidebar.active ul li a {
-    padding: 20px 10px;
+    padding: 15px 8px;
     text-align: center;
     font-size: 0.85em;
 }
@@ -274,7 +342,7 @@ footer {
 #sidebar.active ul li a i {
     margin-right: 0;
     display: block;
-    font-size: 1.8em;
+    font-size: 1.2em;
     margin-bottom: 5px;
 }
 
@@ -286,12 +354,12 @@ a:focus {
     transition: all 0.3s;
 }
 
-#sidebar .sidebar-header {
+/* #sidebar .sidebar-header {
     padding: 20px;
     text-align: center;
     align-content: center;
     background: #f1f0f0;
-}
+} */
 
 /* #sidebar ul.components {
     padding: 20px 0;
@@ -300,12 +368,12 @@ a:focus {
 
 #sidebar ul p {
     color: #046380;
-    padding: 10px;
+    padding: 7px;
 }
 
 #sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 8px;
+    font-size: 0.8em;
     display: block;
 }
 
@@ -321,14 +389,8 @@ a[aria-expanded="true"] {
     background: #E6E2AF;
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #046380;
-}
-
 .mssgicon {
-    padding: 20px auto;
+    padding: 15px auto;
 }
 
 /* to do media query */
@@ -337,18 +399,19 @@ ul ul a {
     /* 80px and its content aligned to centre. Pushing it off the screen with the
        negative left margin
     */
-    #sidebar.active {
+    /* #sidebar.active {
         min-width: 80px;
         max-width: 80px;
         text-align: center;
-        margin-left: -80px !important;
-    }
+        
+    } */
 
 
     /* Reappearing the sidebar on toggle button click */
     #sidebar {
         margin-left: 0;
     }
+
     /* Toggling the sidebar header content, 
        hide the big heading [h3] and showing the small heading [strong] and vice versa
     */
@@ -366,8 +429,8 @@ ul ul a {
 
     /* Downsize the navigation links font size */
     #sidebar.active ul li a {
-        padding: 20px 10px;
-        font-size: 0.85em;
+        padding: 15px 7px;
+        font-size: 0.8em;
     }
 
     /* removing the span tage */
@@ -379,8 +442,8 @@ ul ul a {
     #sidebar.active ul li a img {
         margin-right: 0;
         display: block;
-        font-size: 1.8em;
-        margin-bottom: 5px;
+        font-size: 1.3em;
+        margin-bottom: 3px;
     }
 
 

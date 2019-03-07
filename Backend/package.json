@@ -1,0 +1,26 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "jsonwebtoken": "^8.5.0",
+        "mocha": "^6.0.2",
+        "morgan": "^1.9.1",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.1",
+        "chai": "^4.2.0",
+        "eslint": "^5.15.0"
+    }
+}
